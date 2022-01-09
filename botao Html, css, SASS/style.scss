@@ -1,0 +1,75 @@
+:root{
+    --indicador-color: hsl(104, 94%, 50%);
+    --body-color: hsl(233, 12%,14%);
+    --container-color-ligth: hsl(233, 12%, 26%);
+    --container-color: hsl(233, 12%, 20%);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    background-color: var(--body-color);
+}
+
+.botao{
+    &__switch{
+        height: 80px;
+        background-color: var(--container-color);
+        padding: 0 1.5rem;
+        border-radius: .75rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &__input{
+        display: none;
+    }
+
+    &__rail{
+        position: relative;
+        width: 88px;
+        height: 28px;
+        background-color: var(--container-color-ligth);
+        border-radius: 3rem;
+    }
+
+    &__circulo{
+        display: block;
+        width: 36px;
+        height: 36px;
+        background: radial-gradient(circle at 33%, #d7d8da 0%, #5d5e65 50%, rgba(255, 255,255, 0)100%);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        transition: .4s;
+    }
+
+    &__indicador{
+        width: 12px;
+        height: 12px;
+        background-color: var(--container-color-ligth);
+        border-radius: 50%;
+        margin-left: 1.5rem;
+        transition: .4s;
+    }
+}
+
+.botao{
+    &__input:checked ~.botao__rail .botao__circulo{
+        transform: translate(52px, -50%);
+    }
+
+    &__input:checked ~.botao__indicador{
+        background-color: var(--indicador-color);
+    }
+}
+

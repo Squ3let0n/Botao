@@ -1,0 +1,81 @@
+:root {
+  --indicador-color: hsl(104, 94%, 50%);
+  --body-color: hsl(233, 12%,14%);
+  --container-color-ligth: hsl(233, 12%, 26%);
+  --container-color: hsl(233, 12%, 20%);
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background-color: var(--body-color);
+}
+
+.botao__switch {
+  height: 80px;
+  background-color: var(--container-color);
+  padding: 0 1.5rem;
+  border-radius: .75rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.botao__input {
+  display: none;
+}
+
+.botao__rail {
+  position: relative;
+  width: 88px;
+  height: 28px;
+  background-color: var(--container-color-ligth);
+  border-radius: 3rem;
+}
+
+.botao__circulo {
+  display: block;
+  width: 36px;
+  height: 36px;
+  background: radial-gradient(circle at 33%, #d7d8da 0%, #5d5e65 50%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 0;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.botao__indicador {
+  width: 12px;
+  height: 12px;
+  background-color: var(--container-color-ligth);
+  border-radius: 50%;
+  margin-left: 1.5rem;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.botao__input:checked ~ .botao__rail .botao__circulo {
+  -webkit-transform: translate(52px, -50%);
+          transform: translate(52px, -50%);
+}
+
+.botao__input:checked ~ .botao__indicador {
+  background-color: var(--indicador-color);
+}
+/*# sourceMappingURL=style.css.map */
